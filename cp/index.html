@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+<div id="js" style="float:left;"></div>
+<div id="js2" style="float:left;margin-left:15px;"></div>
+<script>
+$(function(){
+for(var i=3;i<16;i++){
+	var oHead = document.getElementsByTagName('HEAD').item(0); 
+    var oScript= document.createElement("script"); 
+    oScript.type = "text/javascript"; 
+	if(i<10){
+    oScript.src="200"+i+".js"; 
+	}else{
+    oScript.src="20"+i+".js"; 
+	}
+    oHead.appendChild( oScript); 
+}
+
+var allnum=[];
+setTimeout(function(){
+	var num=0;
+	for(var i=3;i<16;i++){
+		if(i<10){
+			allnum=allnum.concat(eval("num200"+i));
+		}else{
+			allnum=allnum.concat(eval("num20"+i));
+		}
+	}
+	var numHtml="",l=allnum.length;
+	
+	allnum.sort(compare("red"));
+	for(var i=0;i<l;i++){
+		numHtml+=allnum[i].red+"<br/>";
+	}
+	$("#js").html(numHtml);
+	var num2015L=num2015.length;
+	numHtml="";
+	for(var i=0;i<num2015L;i++){
+		numHtml+=num2015[i].red+"<br/>";
+	}
+	$("#js2").html(numHtml);
+	},1000);
+
+});
+
+function compare(tagName){
+		return function(a,b){
+			var q=a[tagName],t=b[tagName];
+			if(typeof q!="string"){
+				alert(typeof q);
+			}
+			var result=q.localeCompare(t)
+			return result;
+		}
+	}
+function compa(a,b){
+	return parseInt(a)-parseInt(b);
+}
+
+
+</script>
+</body>
+</html>
