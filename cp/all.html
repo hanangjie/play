@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+<div id="js0" style="float:left;"></div>
+<div id="js1" style="float:left;margin-left:15px;"></div>
+<div id="js2" style="float:left;margin-left:15px;"></div>
+<div id="js3" style="float:left;margin-left:15px;"></div>
+<div id="js4" style="float:left;margin-left:15px;"></div>
+
+<script>
+//$(function(){
+//	var arr1=[];
+//	var allcan=[];
+//	for(var i=1;i<34;i++){
+//		if(i<10){
+//			arr1.push("0"+i.toString());
+//		}else{
+//			arr1.push(i.toString());
+//		}
+//	}
+//	for(var i=0;i<28;i++){
+//		var kind="";
+//		kind+=","+arr1[i];
+//		for(var q=(i+1);q<(i+6);q++){
+//			kind+=","+arr1[q];
+//		}
+//		allcan.push(kind.slice(1));
+//	}
+//	console.log(allcan);
+//});
+
+$(function(){
+	var arr1=[];
+	var allcan=[];
+	for(var i=1;i<34;i++){
+		if(i<10){
+			arr1.push("0"+i.toString());
+		}else{
+			arr1.push(i.toString());
+		}
+	}
+	
+	for(var i=0;i<33;i++){
+		for(var q=0;q<33;q++){
+			if(q==i||q>i) continue;
+			for(var t=0;t<33;t++){
+				if(t==i||q==t||t>q||t>i) continue;
+				for(var r=0;r<33;r++){
+					if(r==i||q==r||r==t||r>i||r>q||r>t) continue;
+					for(var p=0;p<33;p++){
+						if(p==i||p==q||p==t||p==r||p>i||p>q||p>t||p>r) continue;	
+						for(var u=0;u<33;u++){
+							if(u==i||u==q||u==t||u==r||u==p||u>i||u>q||u>t||u>r||u>p) continue;
+								var kind="";
+								kind+=","+arr1[u];
+								kind+=","+arr1[p];
+								kind+=","+arr1[r];
+								kind+=","+arr1[t];
+								kind+=","+arr1[q];
+								kind+=","+arr1[i];
+								allcan.push(kind.slice(1));
+						}
+					}
+				}
+			}
+		}
+	}
+	//所有红球的组合
+	var html="",html1="",html2="",html3="",html4="",l=(allcan.length-3)/5;
+	setTimeout(function(){
+	for(var a=0;a<l;a++){
+		html+=allcan[a]+"<br>";
+	}
+	$("#js0").append(html);
+	},3000);
+	setTimeout(function(){
+	for(var a=l;a<(2*l);a++){
+		html1+=allcan[a]+"<br>";
+	}
+	$("#js1").append(html1);
+	},6000);
+	setTimeout(function(){
+	for(var a=(2*l);a<(3*l);a++){
+		html2+=allcan[a]+"<br>";
+	}
+	$("#js2").append(html2);
+	},9000);
+	setTimeout(function(){
+	for(var a=(3*l);a<(4*l);a++){
+		html3+=allcan[a]+"<br>";
+	}
+	$("#js3").append(html3);
+	},12000);
+	setTimeout(function(){
+	for(var a=(4*l);a<(5*l+3);a++){
+		html4+=allcan[a]+"<br>";
+	}
+	$("#js4").append(html4);
+	
+	},15000);
+});
+
+</script>
+</body>
+</html>
