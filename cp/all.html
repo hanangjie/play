@@ -57,6 +57,9 @@ $(function(){
 						if(p==i||p==q||p==t||p==r||p>i||p>q||p>t||p>r) continue;	
 						for(var u=0;u<33;u++){
 							if(u==i||u==q||u==t||u==r||u==p||u>i||u>q||u>t||u>r||u>p) continue;
+							if( ((u-p)==-1)&& ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1) && ((q-i)==-1) ) continue;
+							if( ((u-p)==-1)&& ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1)  ) continue;
+							if( ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1) && ((q-i)==-1) ) continue;
 								var kind="";
 								kind+=","+arr1[u];
 								kind+=","+arr1[p];
@@ -72,7 +75,8 @@ $(function(){
 		}
 	}
 	//所有红球的组合
-	var html="",html1="",html2="",html3="",html4="",l=(allcan.length-3)/5;
+	console.log("总共：1107568，结果："+allcan.length);
+	var html="",html1="",html2="",html3="",html4="",l=(allcan.length-(allcan.length%5))/5;
 	setTimeout(function(){
 	for(var a=0;a<l;a++){
 		html+=allcan[a]+"<br>";
@@ -98,7 +102,7 @@ $(function(){
 	$("#js3").append(html3);
 	},12000);
 	setTimeout(function(){
-	for(var a=(4*l);a<(5*l+3);a++){
+	for(var a=(4*l);a<(5*l+allcan.length%5);a++){
 		html4+=allcan[a]+"<br>";
 	}
 	$("#js4").append(html4);

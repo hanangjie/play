@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="2015.js"></script>
+</head>
+
+<body>
+<div id="js" style="float:left;"></div>
+<div id="js2" style="float:left;margin-left:15px;"></div>
+<script>
+$(function(){
+
+	
+	var num2015L=num2015.length;
+	numHtml="";
+	for(var i=0;i<num2015L;i++){
+		numHtml+=num2015[i].red+"<br/>";
+	}
+	$("#js2").html(numHtml);
+
+
+});
+
+function compare(tagName){
+		return function(a,b){
+			var q=a[tagName],t=b[tagName];
+			if(typeof q!="string"){
+				alert(typeof q);
+			}
+			var result=q.localeCompare(t)
+			return result;
+		}
+	}
+function compa(a,b){
+	return parseInt(a)-parseInt(b);
+}
+
+
+</script>
+</body>
+</html>

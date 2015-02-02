@@ -40,12 +40,28 @@ setTimeout(function(){
 		numHtml+=allnum[i].red+"<br/>";
 	}
 	$("#js").html(numHtml);
-	var num2015L=num2015.length;
-	numHtml="";
-	for(var i=0;i<num2015L;i++){
-		numHtml+=num2015[i].red+"<br/>";
+	console.log(allnum.length);
+	var gl={},glall="";
+	for(var i=1;i<34;i++){
+		gl.num=i;
+		gl.gailv=0;
+		if(i<10){
+			i="0"+i;
+		}
+		for(var q=0;q<allnum.length;q++){
+			if(allnum[q].red.indexOf(i.toString())!=-1){
+				gl.gailv++;
+			}
+		}
+		glall+=gl.num+":"+gl.gailv+","+(gl.gailv/allnum.length).toFixed(2)+";;;";
 	}
-	$("#js2").html(numHtml);
+	console.log(glall);
+//	var num2015L=num2015.length;
+//	numHtml="";
+//	for(var i=0;i<num2015L;i++){
+//		numHtml+=num2015[i].red+"<br/>";
+//	}
+//	$("#js2").html(numHtml);
 	},1000);
 
 });

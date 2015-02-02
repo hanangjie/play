@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+<script>
+for(var i=3;i<16;i++){
+		var oHead = document.getElementsByTagName('HEAD').item(0); 
+		var oScript= document.createElement("script"); 
+		oScript.type = "text/javascript"; 
+		if(i<10){
+		oScript.src="200"+i+".js"; 
+		}else{
+		oScript.src="20"+i+".js"; 
+		}
+		oHead.appendChild( oScript); 
+	}
+</script>
+<div id="js" style="display:block">预测红球百分百：输入格式01,02,03,04,05,06对应计算出下期号码</div><br />
+
+<div id="js" style="float:left;">up:<input type="text" id="up" /></div>
+<input type="button" value="计算" id="work" />
+<div id="js2" style="float:left;margin-left:15px;">next:<input type="text" id="next" /></div><br />
+<div class="tip">正在初始化...</div>
+<script>
+$(function(){
+	setTimeout(function(){
+		//allresult
+		var arr1=[];
+		var allcan=[];
+		for(var i=1;i<34;i++){
+			if(i<10){
+				arr1.push("0"+i.toString());
+			}else{
+				arr1.push(i.toString());
+			}
+		}
+		
+		for(var i=0;i<33;i++){
+			for(var q=0;q<33;q++){
+				if(q==i||q>i) continue;
+				for(var t=0;t<33;t++){
+					if(t==i||q==t||t>q||t>i) continue;
+					for(var r=0;r<33;r++){
+						if(r==i||q==r||r==t||r>i||r>q||r>t) continue;
+						for(var p=0;p<33;p++){
+							if(p==i||p==q||p==t||p==r||p>i||p>q||p>t||p>r) continue;	
+							for(var u=0;u<33;u++){
+								if(u==i||u==q||u==t||u==r||u==p||u>i||u>q||u>t||u>r||u>p) continue;
+								if( ((u-p)==-1)&& ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1) && ((q-i)==-1) ) continue;
+								if( ((u-p)==-1)&& ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1)  ) continue;
+								if( ((p-r)==-1) && ((r-t)==-1) && ((t-q)==-1) && ((q-i)==-1) ) continue;
+									var kind="";
+									kind+=","+arr1[u];
+									kind+=","+arr1[p];
+									kind+=","+arr1[r];
+									kind+=","+arr1[t];
+									kind+=","+arr1[q];
+									kind+=","+arr1[i];
+									allcan.push(kind.slice(1));
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		//result
+		var day=new Date();
+		$(".tip").html("初始化完成！");
+		
+		var allnum=[],num;
+		for(var i=15;i>2;i--){
+			if(i<10){num="0"+i;}else{num=i;}
+			allnum=allnum.concat(eval("num20"+num));
+		}
+		console.log(allnum);
+		$("#work").click(function(){
+			$(".tip").html("正在进行计算...").show();
+			var val1=$("#up").val();
+			setTimeout(function(){
+				var day=new Date();
+				for(var q=0;q<allnum.length;q++){
+					if(allnum[q].red.indexOf(val1)!=-1){
+						if(q==0){
+							if(day.getDay()==2||day.getDay()==4||day.getDay()==7){
+								$("#next").val(allcan[comp(24*day.getYear()*day.getMonth()*day.getDay()*day.getDate(),allnum,allcan)]);
+							}else if(day.getDay()==1||day.getDay()==3||day.getDay()==6){
+								$("#next").val(allcan[comp(24*day.getYear()*day.getMonth()*(day.getDay()+1)*day.getDate(),allnum,allcan)]);
+							}else{
+								$("#next").val(allcan[comp(24*day.getYear()*day.getMonth()*(day.getDay()+2)*day.getDate(),allnum,allcan)]);
+							}
+							$(".tip").html("结果已出！请核对！").show();
+						}else{
+							$("#next").val(allnum[q-1].red);
+							$(".tip").html("结果已出！请核对！").show();
+						}
+						return;
+					}else{
+						$(".tip").html("此号码还没中过，无法计算");
+					}
+				}
+			},5000);
+		});
+	},1000);
+	
+});
+
+function comp(a,arr,allcan){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i].red.indexOf(allcan[a])!=-1){
+			return a++;
+		}else{
+			return a;
+		}
+	}
+}
+</script>
+</body>
+</html>
