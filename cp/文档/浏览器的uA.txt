@@ -1,0 +1,20 @@
+Î¢ÐÅmozilla/5.0 (linux; u; android 4.2.1; zh-cn; 2013022 build/hm2013022) applewebkit/533.1 (khtml, like gecko)version/4.0 mqqbrowser/5.4 tbs/025410 mobile safari/533.1 micromessenger/6.1.0.66_r1062275.542 nettype/wifi
+
+Ucmozilla/5.0 (linux; u; android 4.2.1; zh-cn; 2013022 build/hm2013022) applewebkit/534.30 (khtml, like gecko) version/4.0 ucbrowser/10.2.1.550 u3/0.8.0 mobile safari/534.30
+
+
+ÄÚÖÃmozilla/5.0 (linux; u; android 4.2.1; zh-cn; 2013022 build/hm2013022) applewebkit/537.36 (khtml, like gecko) version/4.0 mobile safari/537.36 xiaomi/miuibrowser/2.1.1
+
+chrome mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/40.0.2214.115 safari/537.36
+
+»ðºü mozilla/5.0 (windows nt 6.1; wow64; rv:32.0) gecko/20100101 firefox/32.0 
+
+360 mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/31.0.1650.63 safari/537.36
+
+uc Pc mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/38.0.2125.122 ubrowser/4.0.3647.0 safari/537.36
+
+åÛÓÎ mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) maxthon/4.4.0.3000 chrome/30.0.1599.101 safari/537.36
+
+ie mozilla/5.0 (windows nt 6.1; wow64; trident/7.0; slcc2; .net clr 2.0.50727; .net clr 3.5.30729; .net clr 3.0.30729; infopath.2; .net4.0c; .net4.0e; rv:11.0) like gecko 
+
+safari mozilla/5.0 (windows nt 6.1; wow64) applewebkit/534.57.2 (khtml, like gecko) version/5.1.7 safari/534.57.2
