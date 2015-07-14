@@ -9,11 +9,7 @@ function stringReplace_com(data,template) {
         str+=temp.replace(/\{\w+\}/g, function(word) {
             word=word.replace("{","");
             word=word.replace("}","");
-            if(arr[i][word]!=""&&arr[i][word]!=undefined){
-                return arr[i][word];
-            }else{
-                return "";
-            }
+            return arr[i][word]||"";
         });
     }
     return str;
