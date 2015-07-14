@@ -1,0 +1,16 @@
+body,html{width:100%;height:100%;background:#000;}
+.imgList{width:100%;height:100%;left:0px;top:0px;overflow:hidden;-webkit-perspective:1000;}
+.imgCont{width:100%;height:100%;position:absolute;background-size:cover;background-position: center center;z-index:0;display:none;}
+.imgCont label{width: 35px;height:20px;background: url("../images/up.png") no-repeat;background-size: cover;
+position:absolute;bottom:10px;margin-left:45%;display:none;}
+
+.contral{width:100%;height:100%;left:0px;top:0px;z-index:100;}
+
+.imgList .word{background:#fff;}
+.wordBox{padding:10px 10px 10px 10px;height:100%;overflow-y: auto;}
+.wordBox img{border-radius:4px;width:100%;}
+.wordBox *{color:#585858;font-size:15px;line-height:32px;}
+.wordBox p{text-indent: 24px;}
+.word .btn{border-radius:50px;font-size:18px;color:#fff;line-height:40px;height:40px;display: block;background:#fda543;
+text-align:center;bottom:0px;margin:0px 10px;}
+.word .cjBtn{width:100%;height:40px;bottom:10px;}
