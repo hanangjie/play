@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+<title>景区联盟_杭州乐园-相册详情</title>
+<!--公共部分-->
+<script src="js/zepto.min.js" language="javascript"></script>
+<script src="js/frozen.js" language="javascript"></script>
+<link href="css/frozen.css" rel="stylesheet" />
+<link href="css/common.css" rel="stylesheet" />
+<!--公共样式部分-->
+
+</head>
+<body>
+<script src="js/photo.js" language="javascript"></script>
+<!--<div id="num" class="pa" style="color:#fff;z-index:10;">12</div>-->
+<div class="listBox pl ov">
+    <div class="list pa" id="list" laft="0" rel="0" >
+        <div class="listBox">
+            <img src="images/img4.jpg"  onload="imgResize(this)" alt="第一张" title="第一张的标题" />
+        </div>
+        <div class="listBox">
+            <img src="images/img2.jpg" onload="imgResize(this)" alt="第二张" title="第二张的标题" />
+        </div>
+        <div class="listBox">
+            <img src="images/img3.jpg" onload="imgResize(this)" alt="第三张" title="第三张的标题" />
+        </div>
+        <div class="listBox">
+            <img src="images/img4.jpg" onload="imgResize(this)" alt="第四张" title="第四张的标题" />
+        </div>
+        <div class="listBox">
+            <img src="images/img5.jpg" onload="imgResize(this)" alt="第五张" title="第五张的标题" />
+        </div>
+        <div class="listBox">
+            <img src="images/img6.jpg" onload="imgResize(this)" alt="第六张" title="第六张的标题" />
+        </div>
+    </div>
+    <div class="title pa">
+        <p class="ov"></p>
+    </div>
+    <ul class="tabList pa">
+    </ul>
+</div>
+<style>
+    body,html{width:100%;height:100%;}
+    .listBox{width:100%;height:100%;background:#000;}
+    .list{left:0px;top:0px;}
+    .listBox{float:left;overflow:hidden;}
+    .listBox img{margin:auto;display:block;}
+    .title{height:46px;left:0px;bottom:0px;width:100%;line-height:18px;color:#fff;z-index:100;font-size:12px;}
+    .title p{margin:5px 10px;height:36px;}
+    .title:before{content:"";width:100%;height:46px;opacity: 0.4;position:absolute;left:0px;top:0px;background:#000;z-index:-1;}
+    .tabList{width:100%;height:10px;bottom:46px;left:0px;text-align: center;}
+    .tabList li{padding:2px;display: inline;line-height:2px;position: relative;padding-right: 5px;text-indent: -9999px;}
+    .tabList li:before{content:"";width:5px;height:5px;left:0px;top:0px;position: absolute;background: #6F6F6F;border-radius:50px;}
+    .tabList li.on:before{background: #fff;}
+</style>
+</body>
+</html>
