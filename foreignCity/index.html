@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="foreignCity.js"></script>
+</head>
+
+<body>
+
+<table id="t">
+
+</table>
+
+<script type="text/javascript">
+	var html="";
+	var topH="<tr><th>代码</th><th>国家</th><th></th><th>国家</th><th>城市代码</th><th>城市</th></tr>";
+	var number=10;
+	var countryArr=[];
+	var coutryName="中国香港";
+	var city=1;
+	html+=topH;
+	console.log(FlightSearchBoxConf);
+	for(var x in FlightSearchBoxConf.data){
+		for(var i=0;i<FlightSearchBoxConf.data[x].cityList[0].list.length;i++){
+			/*html+="<tr><td>"+number+"</td><td>"+FlightSearchBoxConf.data[x].cityList[0].list[i].country+"</td><td></td><td>"
++FlightSearchBoxConf.data[x].cityList[0].list[i].country+"</td><td>"+(number+""+city)+"</td><td>"+FlightSearchBoxConf.data[x].cityList[0].list[i].name+"</td></tr>";
+			number++;
+			city++;*/
+			countryArr.push(FlightSearchBoxConf.data[x].cityList[0].list[i]);
+		}
+	}
+	countryArr=countryArr.sort(conpare)
+	console.log(countryArr);
+	for(var i=0;i<countryArr.length;i++){
+		if(countryArr[i].country!=coutryName){
+			number++;
+			city=1;
+		}
+		coutryName=countryArr[i].country;
+			html+="<tr><td>"+number+"</td><td>"+countryArr[i].country+"</td><td></td><td>"
++countryArr[i].country+"</td><td>"+(number+""+city)+"</td><td>"+countryArr[i].name+"</td></tr>";
+			city++;
+		}
+	$("#t").html(html);
+
+	function conpare(v1,v2){
+		return v1.country.slice(0,1).charCodeAt(0)-v2.country.slice(0,1).charCodeAt(0)
+		
+	}
+</script>
+</body>
+</html>
