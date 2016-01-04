@@ -50,6 +50,10 @@
 
 				var len=dateArr[m].length;
 				//最后项是不是周日
+				if(dateArr[m][(len-2)].m!=dateArr[m][(len-3)].m){
+					dateArr[m].pop();
+					len--;
+				}
 				if(dateArr[m][(len-1)].z!=0){
 					for(var q=1;q<(7-dateArr[m][(len-1)].z);q++){
 						dateArr[m].push({y:dateArr[m][(len-1)].y,m:dateArr[m][(len-1)].m,d:dateArr[m][(len-1)].d+q,z:dateArr[m][(len-1)].z+q});
