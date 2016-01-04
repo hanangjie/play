@@ -20,6 +20,7 @@
 	.dateMobile .fullYear th{line-height:30px;text-align:center;}
 	.dateMobile td{height:41px;font-size:14px;color:#333;font-family:SimHei,黑体,Arail;background:#f9f9f9;}
 	.dateMobile td.can{background:#fff;}
+	.dateMobile td.before{color:#CCCCCC;}
 	.dateMobile td div{height:36px;padding:5px 0px 0px 5px;border:1px solid #eaeaea;}
 	.dateMobile td.on{background:#fff8ee;}
 	.dateMobile td.on div{  border: 1px solid #febe32; }
@@ -27,7 +28,7 @@
 <script>
 	console.log(new Date().getTime())
 	$.creatDate({
-		showMonth:"30",
+		showMonth:"5",
 		type:"after",
 		direct:"#dateMobile"
 	});

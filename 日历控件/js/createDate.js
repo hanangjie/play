@@ -98,7 +98,7 @@
 					$(this).addClass("can");
 				}
 				$(this).click(function(){
-					if($(this).attr("class")!=undefined&&$(this).attr("class")!=""){
+					if($(this).hasClass("can")&&!$(this).hasClass("before")){
 						$(this).closest("#dateMobile").find("td").removeClass("on");
 						$(this).addClass("on");
 					}
@@ -106,5 +106,9 @@
 			});
 
 			$("#d_"+nowTime.getFullYear()+"-"+(nowTime.getMonth()+1)+"-"+nowTime.getDate()).trigger("click");
+
+			for(var q=1;q<nowTime.getDate();q++){
+				$("#d_"+nowTime.getFullYear()+"-"+(nowTime.getMonth()+1)+"-"+q).addClass("before");
+			}
 		}
 })(Zepto);
