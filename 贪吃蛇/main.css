@@ -1,0 +1,21 @@
+/* CSS Document */
+
+.she_c{
+
+	background:#fefefe;
+	margin:auto;
+	border:1px solid #333;
+}
+
+.she_c td{
+	width:10px;
+	height:10px;
+	background:#fff;
+}
+.she_c td.on{
+	background:#03F;
+}
+
+.she_c td.food{
+	background:#0C0;
+}
