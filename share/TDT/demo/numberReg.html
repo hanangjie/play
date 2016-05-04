@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="./qunit-1.21.0.css">
+
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script src="./qunit-1.21.0.js"></script>
+</head>
+<body>
+<script>
+    QUnit.test( "大于0的数字包含两位小数", function( assert ) {
+        assert.equal( numberReg("0.21"),true, "0.21返回通过" );
+        assert.equal( numberReg("2.121"),false, "2.211返回不通过" );
+        assert.equal( numberReg("A21"),false, "A21返回不通过" );
+        assert.equal( numberReg("a21"),false, "a21返回不通过" );
+        /*assert.equal( numberReg("2..1"),false, ".21返回不通过" );
+        assert.equal( numberReg("21."),false, "21.返回不通过" );
+        assert.equal( numberReg(".21"),false, ".21返回不通过" );*/
+    });
+    function numberReg(str){
+        var carNumber=/^\.|[^0-9\.]+|\.$/g;
+        if(carNumber.test(str)){
+            return false
+        }else{
+            return true;
+            /*if(str.split(".")[1].length>2||str.split(".").length>2){
+                return false;
+            }else{
+                return true;
+            }*/
+        }
+    }
+</script>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="./qunit-1.21.0.css">
+    <script src="./ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./theme-twilight.js"></script>
+    <script src="./mode-html.js"></script>
+
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script src="./qunit-1.21.0.js"></script>
+</head>
+<body>
+<div class="breadcrumb" style="margin-bottom: 0px;">
+    <input type="button" value="运行" onclick="run()" style="width:100%;height:40px;font-size: 28px;line-height: 40px;text-align: center">
+</div>
+<div id="editor" class="span5">
+</div>
+<script>
+
+    var editor = ace.edit("editor");
+    var JavaScriptMode = ace.require("ace/mode/html").Mode;
+    editor.session.setMode(new JavaScriptMode());
+    editor.setTheme("ace/theme/twilight");
+
+    $.ajax({
+        url:"../demo/numberReg.html"
+    }).done(function(e){
+        editor.setValue(e);
+    });
+    function run(){
+        var iframe=document.getElementById("show");
+        iframe.contentWindow.document.open();
+        iframe.contentWindow.document.write(editor.getValue());
+        iframe.contentWindow.document.close();
+    }
+</script>
+
+<iframe src="" id="show" frameborder="0" ></iframe>
+
+
+<style>
+    #editor,#show{
+        width: 50%;
+        height: 500px;
+        float: left;
+    }
+    #show{
+        background: #fff;
+    }
+</style>
+</body>
+</html>
