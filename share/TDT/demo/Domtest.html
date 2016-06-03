@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="./qunit-1.21.0.css">
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script src="./qunit-1.21.0.js"></script>
+
+    <script src="./jquery-ui.js"></script>
+</head>
+<body>
+<script>
+
+    function domEqual( selector, modifier, message ) {
+        var attributes = ["class", "role", "id", "tabIndex", "aria-activedescendant"];
+
+        function extract(value) {
+            var result = {};
+            result.nodeName = value[0].nodeName;
+            $.each(attributes, function(index, attr) {
+                result[attr] = value.attr(attr);
+            });
+            result.children = [];
+            var children = value.children();
+            if (children.length) {
+                children.each(function() {
+                    result.children.push(extract($(this)));
+                });
+            } else {
+                result.text = value.text();
+            }
+            return result;
+        }
+        var expected = extract($(selector));
+        modifier($(selector));
+
+        var actual = extract($(selector));
+        QUnit.push( QUnit.equiv(actual, expected), actual, expected, message );
+    }
+    test("destroy", function() {
+        domEqual("#autocomplete", function() {
+            $("#autocomplete").autocomplete().autocomplete("destroy");
+        });
+    })
+</script>
+
+<div id="qunit"></div>
+<p>这是id为autocomplete的文本框：<input id="autocomplete" class=""></p>
+<div id="qunit-fixture">
+    <input id="autocomplete" type="text" placeholder="placeholder text" />
+</div>
+</body>
+</html>
